@@ -23,7 +23,7 @@ express()
 
   .get('/api/users', (req, res) => {
     console.log('api/users called!!!!!!!')
-    res.json([{ name : "Brijesh", pipline : 1 , role : "Dev", random : ~~(Math.random() * 100), development : "Staging Auto Deploy" }]);
+    res.json([{ name : "Brijesh", pipline : 100 , role : "Dev", random : ~~(Math.random() * 100), development : "Staging Auto Deploy" }]);
   })
 
   .get('/', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
