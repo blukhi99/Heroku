@@ -20,9 +20,15 @@ express()
 
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
 
+  .get('/api/users', (req, res) => {
+    console.log('api/users called!!!!!!!')
+    res.json([{ name : "Brijesh", role : "Dev" }]);
+  })
+
+  .get('/', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
   .get('/cool', (req, res) => res.send(cool()))
+
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect();
