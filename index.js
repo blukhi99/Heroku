@@ -4,6 +4,8 @@ const express = require('express'),
 
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const ENVIRONMENT = process.env.ENVIRONMENT
+
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -23,7 +25,7 @@ express()
 
   .get('/api/users', (req, res) => {
     console.log('api/users called!!!!!!!')
-    res.json([{ name : "Brijesh", pipline : 1 , role : "Dev", random : ~~(Math.random() * 100), development : "Auto Deploy" }]);
+    res.json([{ name : "Brijesh", pipline : 1 , role : "Dev", random : ~~(Math.random() * 100), development : "Auto Deploy", ENVIRONMENT : ENVIRONMENT }]);
   })
 
   .get('/', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
